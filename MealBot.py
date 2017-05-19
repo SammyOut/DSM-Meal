@@ -12,30 +12,19 @@ class MealBot(fbchat.Client):
         self.markAsRead(author_id) #mark read
 
         if str(author_id) != str(self.uid) :
-            if ('호서'in message) :
-                if('내일' in message) :
-                    self.send(author_id, parsing.htomo())
-                elif ('밥' in message or '급식' in message) :
-                    self.send(author_id,parsing.htoday())
-                    
-            elif('당진' in message) :
-                if('내일' in message) :
-                    self.send(author_id, parsing.dtomo())
-                elif ('밥' in message or '급식' in message) :
-                    self.send(author_id,parsing.dtoday())
-
-            elif ('모레'in message) :
-                    self.send(author_id, parsing.day2())    
+            if ('모레'in message) : self.send(author_id, parsing.tt())
+            
             elif('내일' in message) :
-                    self.send(author_id, parsing.tomorrow())
-            elif ('아침' in message) :
-                self.send(author_id, parsing.breakfast())
-            elif ('점심' in message) :
-                self.send(author_id, parsing.lunch())
-            elif ('저녁' in message) :
-                self.send(author_id, parsing.dinner())
-            elif ('밥' in message or '급식' in message) :
-                self.send(author_id,parsing.breakfast()+parsing.lunch()+parsing.dinner())
-            elif ('명령어' in message) :
-                self.send(author_id,command)
+                if ('아침' in message) : self.send(author_id, parsing.tb())
+                elif ('점심' in message) : self.send(author_id, parsing.tl())
+                elif ('저녁' in message) : self.send(author_id, parsing.td())
+                else : self.send(author_id,parsing.tom())
+
+            elif ('아침' in message) : self.send(author_id, parsing.br())
+            elif ('점심' in message) : self.send(author_id, parsing.lu())
+            elif ('저녁' in message) : self.send(author_id, parsing.di())
+            elif ('오늘' in message or'밥' in message or '급식' in message) :self.send(author_id,parsing.tod())
+
+            elif ('명령어' in message) :self.send(author_id,command)
+
         message = ''
