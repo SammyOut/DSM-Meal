@@ -17,7 +17,7 @@ daily = []
 day = []
 
 for a in dsm:
-    week.append(str(a).replace('<br/>', '\n'))
+    week.append(str(a).replace('<br/>', '\n').replace('</div></td>',''))
 for a in week:
     daily.append(a.split('<td><div>'))
 for a in daily :

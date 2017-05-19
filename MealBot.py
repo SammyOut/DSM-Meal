@@ -20,11 +20,15 @@ class MealBot(fbchat.Client):
                 elif ('저녁' in message) : self.send(author_id, parsing.td())
                 else : self.send(author_id,parsing.tom())
 
+            elif ('오늘' in message ) :
+                if ('아침' in message) : self.send(author_id, parsing.br())
+                elif ('점심' in message) : self.send(author_id, parsing.lu())
+                elif ('저녁' in message) : self.send(author_id, parsing.di())
+                else : self.send(author_id,parsing.tod())
             elif ('아침' in message) : self.send(author_id, parsing.br())
             elif ('점심' in message) : self.send(author_id, parsing.lu())
             elif ('저녁' in message) : self.send(author_id, parsing.di())
-            elif ('오늘' in message or'밥' in message or '급식' in message) :self.send(author_id,parsing.tod())
 
-            elif ('명령어' in message) :self.send(author_id,command)
+            elif ('사용' in message) :self.send(author_id,command)
 
         message = ''
