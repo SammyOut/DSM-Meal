@@ -11,7 +11,11 @@ class MealBot(fbchat.Client):
         self.markAsRead(author_id) #mark read
 
         if str(author_id) != str(self.uid) :
-            if ('모레'in message) : self.send(author_id, parsing.tt())
+            if ('의견' in message) :
+                self.send(100004765026222,message)
+                self.send(author_id, "의견이 전송되었습니다.")
+              
+            elif('모레'in message) : self.send(author_id, parsing.tt())
             
             elif('내일' in message) :
                 if ('아침' in message) : self.send(author_id, parsing.tb())
