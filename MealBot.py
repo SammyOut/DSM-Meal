@@ -1,7 +1,6 @@
 import fbchat
 import parsing
 
-command = '모레 : 내일모레 하루 급식 메뉴 출력\n내일 : 내일 하루 급식 메뉴 출력\n아침 : 오늘 아침 급식 메뉴 출력\n점심 : 오늘 점심 급식 메뉴 출력\n저녁 : 오늘 저녁 급식 메뉴 출력\n급식, 밥 : 오늘 하루 급식 메뉴 출력'
 class MealBot(fbchat.Client):
 
     def __init__(self,email, password, debug=True, user_agent=None):
@@ -25,10 +24,9 @@ class MealBot(fbchat.Client):
                 elif ('점심' in message) : self.send(author_id, parsing.lu())
                 elif ('저녁' in message) : self.send(author_id, parsing.di())
                 else : self.send(author_id,parsing.tod())
+                
             elif ('아침' in message) : self.send(author_id, parsing.br())
             elif ('점심' in message) : self.send(author_id, parsing.lu())
             elif ('저녁' in message) : self.send(author_id, parsing.di())
-
-            elif ('사용' in message) :self.send(author_id,command)
 
         message = ''
