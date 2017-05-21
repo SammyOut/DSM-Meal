@@ -23,7 +23,7 @@ class MealBot(fbchat.Client):
                     f = open("opinion.txt", 'a')
                     f.write(message+'\n')
                     f.close()
-                    self.send(100004765026222, "의견이 추가됨")
+                    self.send(100004765026222, "의견이 추가됨.")
                     self.send(author_id, "의견이 전송되었습니다.")
                     
                 else :
