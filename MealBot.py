@@ -17,7 +17,7 @@ class MealBot(fbchat.Client):
         dayn = t.tm_mday
         if(not('당진' in message or '호서' in message or '서야'in message or '정보' in message)) :
             if str(author_id) != str(self.uid) :
-                if ('의견' in message or '아침' in message or '점심'in message or '저녁' in message or '조식' in message or '중식' in message or '석식' in message or '모레' in message or '내일' in message or '밥' in messageor or '급식' in message) : 
+                if ('의견' in message or '아침' in message or '점심'in message or '저녁' in message or '조식' in message or '중식' in message or '석식' in message or '모레' in message or '내일' in message or '밥' in message or '급식' in message) : 
     
                     if ('의견' in message) :
                         f = open("opinion.txt", 'a')
@@ -40,6 +40,6 @@ class MealBot(fbchat.Client):
                             if (message[index-2]>='0' and message[index-2]<'9') : n += int(message[index-2])*10
                             if (n < 32) : dayn = n
 
-                        self.send(author_id, parsing.bab(dayn, meal))
+                        self.send(author_id, parsing.bab(dayn, meal)+'meal')
 
                 message = ''
