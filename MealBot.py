@@ -40,6 +40,6 @@ class MealBot(fbchat.Client):
                             if (message[index-2]>='0' and message[index-2]<'9') : n += int(message[index-2])*10
                             if (n < 32) : dayn = n
 
-                        self.send(author_id, parsing.bab(dayn, meal)+'meal')
+                        self.send(author_id, parsing.bab(dayn, meal))
 
                 message = ''
