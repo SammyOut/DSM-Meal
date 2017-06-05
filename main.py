@@ -1,5 +1,5 @@
-import MealBot
+import aMealBot
 import getpass
 
-bot = MealBot.MealBot("sm372182@gmail.com", getpass.getpass())
+bot = aMealBot.MealBot("sm372182@gmail.com", getpass.getpass())
 bot.listen()
