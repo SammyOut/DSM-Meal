@@ -2,9 +2,9 @@ import fbchat
 import aparsing
 import time
 import aweather
+import aClub
 
-
-
+clublist = aClub.clublist()
 
 class MealBot(fbchat.Client):
 
@@ -19,8 +19,11 @@ class MealBot(fbchat.Client):
         t = time.localtime()
         dayn = t.tm_mday
         if str(author_id) != str(self.uid) :
-            if ('의견' in message or '아침' in message or '점심'in message or '저녁' in message or '조식' in message or '중식' in message or '석식' 
-                in message or '모레' in message or '내일' in message or '밥' in message or '급식' in message or '오늘' in message or '날씨' in message) : 
+            if ('의견' in message or '아침' in message or '점심'in message or
+                '저녁' in message or '조식' in message or '중식' in message or
+                '석식' in message or '모레' in message or '내일' in message or
+                '밥' in message or '급식' in message or '오늘' in message or
+                '날씨' in message or '동아리' in message) : 
     
                     if ('의견' in message) :
                         f = open("opinion.txt", 'a')
@@ -29,9 +32,18 @@ class MealBot(fbchat.Client):
                         self.send(100004765026222, "의견이 추가됨.")
                         self.send(author_id, "의견이 전송되었습니다.")
                         return 0
+                    
                     elif('날씨' in message) :
                         self.send(author_id, aweather.cWeahter())
-                    
+
+                    elif('동아리' in message) :
+                        if ('목록' in message or '목록' in message) :
+                            self.send(author_id, '\n'.join(clublist))
+                        else :
+                            for a in clublist :
+                                if(a in message) :
+                                    self.send(author_id, aClub.club(a))
+                        
                     else :
                         if ('아침' in message or '조식' in message) : meal = 1
                         elif ('점심'in message or '중식' in message) : meal = 2

@@ -1,4 +1,4 @@
-club = {'D' : ['D', 13, 'C,C++에 대한 학습 및 DirectX에 대한 학습과 DirectX를 이용한 게임 개발'],
+aclub = {'D' : ['D', 13, 'C,C++에 대한 학습 및 DirectX에 대한 학습과 DirectX를 이용한 게임 개발'],
         'GRAM' : ['GRAM', 11, '모바일 어플리케이션(안드로이드, IOS) 개발 및 팀 프로젝트 진행을하는 동아리'],
         'Team.QSS' : ['Team.QSS (팀.케세라세라)', 9, '게임개발에 기획, 구현, 디자인 등 게임 프로젝트 진행에 대한 전반적인 내용을 동아리원들이 함께 학습하는 동아리'],
         'ICC' : ['ICC', 7, '또래 친구들과 프로그래밍 언어를 함께 공부하고 여러 프로젝트를 진행함으로써 경험을 쌓아나갈 것입니다.'],
@@ -25,5 +25,7 @@ club = {'D' : ['D', 13, 'C,C++에 대한 학습 및 DirectX에 대한 학습과 
         'Digitective' : ['Digitective', 7, '디지털 포렌식 관련한 스터디를 팀을 구성해 체계적으로 공부하며 연구하는 동아리'],
         'Iroid' : ['Iroid', 4, '아이디어와 안드로이드를 결합해서 이제까지 없던 앱을 만들어보고 플레이 스토어에 출시해보기']
         }
-def club() :
-    return club
+def club(name) :
+    return '동아리 명 : '+aclub[name][0]+'\n인원 : '+str(+aclub[name][1])+'\n동아리 목적 : '+aclub[name][2]
+
+def clublist() : return list(aclub.keys())
